@@ -109,8 +109,6 @@ var SwaggerInfo = &swag.Spec{
 	Description:      "fio sender",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
-	LeftDelim:        "{{",
-	RightDelim:       "}}",
 }
 
 func init() {
