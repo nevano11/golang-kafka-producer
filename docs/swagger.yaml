@@ -1,0 +1,61 @@
+basePath: /
+definitions:
+  entity.Fio:
+    properties:
+      first_name:
+        type: string
+      last_name:
+        type: string
+      surname:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: fio sender
+  title: Kafka producer
+  version: "1.0"
+paths:
+  /send-fio:
+    post:
+      consumes:
+      - application/json
+      description: method to send fio
+      parameters:
+      - description: The input todo struct
+        in: body
+        name: full_name
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Fio'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: produce
+  /send-fio/list:
+    post:
+      consumes:
+      - application/json
+      description: method to send fio
+      parameters:
+      - description: The input todo struct
+        in: body
+        name: full_name
+        required: true
+        schema:
+          items:
+            $ref: '#/definitions/entity.Fio'
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: produce
+swagger: "2.0"
